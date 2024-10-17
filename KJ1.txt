@@ -1,0 +1,715 @@
+spawn(function()
+    local P = game.Players.LocalPlayer
+    local Character = P.Character or P.CharacterAdded:Wait()
+
+    while task.wait() do
+        local humanoid = Character:WaitForChild("Humanoid")
+
+        for _, tracks in pairs(humanoid:GetPlayingAnimationTracks()) do
+            if tracks.Animation.AnimationId == "rbxassetid://10466974800" then
+                local H = Character:WaitForChild("HumanoidRootPart")
+
+                local R = game:GetService("ReplicatedStorage")
+                local RS = R.Resources
+                local KE = RS.KJEffects
+                local P1 = KE["1and2"]
+                local P2 = KE["1and2smoke"]
+
+                local function createEffects()
+                    for i = 1, 4 do
+                        local P1_C = P1:Clone()
+                        local P2_C = P2:Clone()
+
+                        P1_C.CFrame = H.CFrame * CFrame.new(0, 0, -3)
+                        P2_C.CFrame = H.CFrame * CFrame.new(0, 0, -5)
+
+                        local T = Character:FindFirstChild("Thrown") or Instance.new("Folder", Character)
+                        T.Name = "Thrown"
+
+                        P1_C.Parent = T
+                        P2_C.Parent = T
+
+                        local A1 = P1_C:FindFirstChild("1and2")
+                        if A1 then
+                            for _, E in pairs(A1:GetDescendants()) do
+                                if E:IsA("ParticleEmitter") then
+                                    E:Emit(4)
+                                end
+                            end
+                        end
+                    end
+
+                    for i = 1, 4 do
+                        local P1_C = P1:Clone()
+                        local P2_C = P2:Clone()
+
+                        P1_C.CFrame = H.CFrame * CFrame.new(0, 0, -4)
+                        P2_C.CFrame = H.CFrame * CFrame.new(0, 0, -6)
+
+                        P1_C.Parent = T
+                        P2_C.Parent = T
+
+                        local A1 = P1_C:FindFirstChild("1and2")
+                        if A1 then
+                            for _, E in pairs(A1:GetDescendants()) do
+                                if E:IsA("ParticleEmitter") then
+                                    E:Emit(4)
+                                end
+                            end
+                        end
+                    end
+                end
+
+                createEffects()
+            end
+        end
+    end
+end)
+
+spawn(function()
+    local P = game.Players.LocalPlayer
+    local Character = P.Character or P.CharacterAdded:Wait() -- Make sure Character is properly referenced
+
+    while task.wait() do
+        
+        local humanoid = Character:WaitForChild("Humanoid")
+
+        for _, tracks in pairs(humanoid:GetPlayingAnimationTracks()) do
+            if tracks.Animation.AnimationId == "rbxassetid://10468665991" then
+              local P = game.Players.LocalPlayer
+local C = P.Character or P.CharacterAdded:Wait()
+local H = C:WaitForChild("HumanoidRootPart")
+
+local R = game:GetService("ReplicatedStorage")
+local RS = R.Resources
+local KE = RS.KJEffects
+local P1 = KE["1and2"]
+local P2 = KE["1and2smoke"]
+
+local function createEffects()
+    for i = 1, 2 do  
+        local P1_C = P1:Clone()
+        local P2_C = P2:Clone()
+
+        P1_C.CFrame = H.CFrame * CFrame.new(0, 0, -3)
+        P2_C.CFrame = H.CFrame * CFrame.new(0, 0, -5)
+
+        local T = C:FindFirstChild("Thrown") or Instance.new("Folder", C)
+        T.Name = "Thrown"
+
+        P1_C.Parent = T
+        P2_C.Parent = T
+
+        local A1 = P1_C:FindFirstChild("1and2")
+        if A1 then
+            for _, E in pairs(A1:GetDescendants()) do
+                if E:IsA("ParticleEmitter") then
+                    E:Emit(15)  
+                end
+            end
+        end
+    end
+end
+
+createEffects()
+end
+        end
+    end
+end)
+
+spawn(function()
+    local P = game.Players.LocalPlayer
+    local Character = P.Character or P.CharacterAdded:Wait() -- Make sure Character is properly referenced
+
+    while task.wait() do
+        
+        local humanoid = Character:WaitForChild("Humanoid")
+
+        for _, tracks in pairs(humanoid:GetPlayingAnimationTracks()) do
+            if tracks.Animation.AnimationId == "rbxassetid://10471336737" then
+              local k = Instance.new("Sound", game.Players.LocalPlayer.Character.Torso)
+k.Name = "Miss"
+k.SoundId = "rbxassetid://16944636115"
+k.Volume = 0.7
+k:Play()
+
+local p = game.Players.LocalPlayer
+local Humanoid = p.Character:WaitForChild("Humanoid")
+
+local AnimAnim = Instance.new("Animation")
+AnimAnim.AnimationId = "rbxassetid://16944265635"
+local Anim = Humanoid:LoadAnimation(AnimAnim)
+AnimAnim.AnimationId = "rbxassetid://0"
+Anim:Play()
+
+delay(0.1, function()
+    
+local TweenService = game:GetService("TweenService")
+    local function v793(v780, v781, v782, v783)
+        local v784 = v782 or 1;
+        local v785 = v779[v781];
+        local v786 = v783:Clone();
+        v786.Parent = workspace.Thrown;
+        v786:WaitForChild("Weld").Part0 = v780:WaitForChild("HumanoidRootPart");
+        v786.Decal.Transparency = 0;
+        v786.Weld.C0 = v785.CF[1].Value;
+        for v787, v788 in pairs(v785.CF) do
+            local v789 = v788.Time - (v785.CF[v787 - 1] and v785.CF[v787 - 1].Time or 0);
+            task.delay((v785.CF[v787 - 1] and v785.CF[v787 - 1].Time or 0) / v784, function()
+                TweenService:Create(v786.Weld, TweenInfo.new(v789 / v784, Enum.EasingStyle.Sine), {
+                    C0 = v788.Value
+                }):Play();
+            end);
+        end;
+        for v790, v791 in pairs(v785.Transparency) do
+            local v792 = v791.Time - (v785.Transparency[v790 - 1] and v785.Transparency[v790 - 1].Time or 0);
+            task.delay((v785.Transparency[v790 - 1] and v785.Transparency[v790 - 1].Time or 0) / v784, function()
+                TweenService:Create(v786.Decal, TweenInfo.new(v792 / v784, Enum.EasingStyle.Quad), {
+                    Transparency = v791.Value
+                }):Play();
+            end);
+        end;
+        task.delay(v785.Length / v784, function()
+            v786:Destroy();
+        end);
+    end;
+    local function v778(v759, v760, v761)
+        local v762 = {};
+        for _, v764 in pairs(v759:GetChildren()) do
+            v762[v764.Name] = v764;
+        end;
+        local v769 = setmetatable({}, {
+            __index = function(_, v766)
+                return {
+                    Clone = function(_)
+                        local v768 = rawget(v762, v766):Clone();
+                        if not table.find(v760, v768) then
+                            table.insert(v760, v768);
+                        end;
+                        return v768;
+                    end
+                };
+            end
+        });
+        local v770 = {
+            _maid = {}
+        };
+        v770._maid.give = function(_, v772)
+            if not table.find(v760, v772) then
+                table.insert(v760, v772);
+            end;
+            return v772;
+        end;
+        v770._maid.giveTask = function(_, v774)
+            if not table.find(v760, v774) then
+                table.insert(v760, v774);
+            end;
+            return v774;
+        end;
+        local function v777()
+            if v769 and v770 then
+                table.clear(v769);
+                table.clear(v770);
+            end;
+            if v762 then
+                table.clear(v762);
+                v762 = nil;
+            end;
+            v770 = nil;
+            v769 = nil;
+            if v760 then
+                for v775, v776 in pairs(v760) do
+                    if typeof(v776) == "RBXScriptConnection" then
+                        v776:Disconnect();
+                    elseif typeof(v776) == "Instance" then
+                        v776:Destroy();
+                    end;
+                    v760[v775] = nil;
+                end;
+                table.clear(v760);
+            end;
+            v760 = nil;
+        end;
+        task.delay(v761 or 10, v777);
+        return v769, v770, v777;
+    end;
+    spawn(function()
+        local l_Character_11 = game.Players.LocalPlayer.Character;
+        local _ = l_Character_11.PrimaryPart;
+        local v1405 = {};
+        local v1406, _ = v778(game.ReplicatedStorage.Resources.KJEffects, v1405, 5);
+            local v1411 = v1406.SweepCresc:Clone();
+            v1411.CFrame = (l_Character_11.HumanoidRootPart.CFrame * CFrame.new(0, -2.632, 0)) * CFrame.Angles(0, 0.6981317007977318, 3.141592653589793);
+            v1411.Parent = workspace.Thrown;
+            TweenService:Create(v1411.Decal, TweenInfo.new(0.133, Enum.EasingStyle.Sine), {
+                Transparency = 0.5
+            }):Play();
+            task.delay(0.133, function()
+                TweenService:Create(v1411.Decal, TweenInfo.new(0.217, Enum.EasingStyle.Sine), {
+                    Transparency = 1
+                }):Play();
+            end);
+            TweenService:Create(v1411, TweenInfo.new(0.183, Enum.EasingStyle.Sine), {
+                CFrame = (l_Character_11.HumanoidRootPart.CFrame * CFrame.new(0, -2.632, 0)) * CFrame.Angles(0, 2.6179938779914944, 3.141592653589793)
+            }):Play();
+            task.delay(0.35, function()
+                TweenService:Create(v1411, TweenInfo.new(0.167, Enum.EasingStyle.Sine), {
+                    CFrame = (l_Character_11.HumanoidRootPart.CFrame * CFrame.new(0, -2.632, 0)) * CFrame.Angles(0, 4.886921905584122, 3.141592653589793)
+                }):Play();
+            end);
+            task.delay(0.033, function()
+                local v1412 = v1406.particlespinner:Clone();
+                v1412.CFrame = (l_Character_11.HumanoidRootPart.CFrame * CFrame.new(0, -3, 0)) * CFrame.Angles(0, 0.1484577061746377, 0);
+                v1412.Parent = workspace.Thrown;
+                v1412.Attachment.ParticleEmitter.Enabled = true;
+                v1412.Attachment.rocks.Enabled = true;
+                TweenService:Create(v1412, TweenInfo.new(0.167, Enum.EasingStyle.Sine), {
+                    CFrame = (l_Character_11.HumanoidRootPart.CFrame * CFrame.new(0, -2.632, 0)) * CFrame.Angles(0, 2.9670597283903604, 0)
+                }):Play();
+                task.delay(0.167, function()
+                    v1412.Attachment.ParticleEmitter.Enabled = false;
+                    v1412.Attachment.rocks.Enabled = false;
+                    game:GetService("Debris"):AddItem(v1412, 9);
+                end);
+            end);
+    end)
+end)
+
+end
+        end
+    end
+end)
+
+spawn(function()
+    local P = game.Players.LocalPlayer
+    local Character = P.Character or P.CharacterAdded:Wait() -- Make sure Character is properly referenced
+
+    while task.wait() do
+        
+        local humanoid = Character:WaitForChild("Humanoid")
+
+        for _, tracks in pairs(humanoid:GetPlayingAnimationTracks()) do
+            if tracks.Animation.AnimationId == "rbxassetid://12510170988" then
+              local a = game.ReplicatedStorage.Resources.KJEffects["RUNAROUNDWIND"].RUNAROUNDWIND:Clone()
+a.Parent = game.Players.LocalPlayer.Character["HumanoidRootPart"]
+    for _, b in ipairs(a:GetChildren()) do
+        if b:IsA("ParticleEmitter") then
+            b:Emit(5)
+            b.Rate = 145
+            b.Enabled = true
+
+task.delay(0.6, function()
+
+b.Rate = 0
+
+end)
+
+        end
+    end
+    
+
+end
+        end
+    end
+end)
+          
+          
+          
+          
+          
+
+          
+          
+          
+          
+          
+
+          
+          
+          
+          
+          
+spawn(function()
+    local P = game.Players.LocalPlayer
+    local Character = P.Character or P.CharacterAdded:Wait()
+
+    while task.wait() do
+        local humanoid = Character:WaitForChild("Humanoid")
+
+        for _, tracks in pairs(humanoid:GetPlayingAnimationTracks()) do
+            if tracks.Animation.AnimationId == "rbxassetid://12447707844" then
+                spawn(function()
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait() 
+local humanoid = character:WaitForChild("Humanoid") 
+
+local firstAnimation = Instance.new("Animation")
+firstAnimation.AnimationId = "rbxassetid://16746843881"
+local firstAnimationTrack = humanoid:LoadAnimation(firstAnimation)
+firstAnimationTrack:Play()
+firstAnimationTrack:AdjustSpeed(0.55)
+wait(7.7)
+firstAnimationTrack:Stop()
+
+local secondAnimation = Instance.new("Animation")
+secondAnimation.AnimationId = "rbxassetid://13801083337"
+local secondAnimationTrack = humanoid:LoadAnimation(secondAnimation)
+secondAnimationTrack:Play()
+secondAnimationTrack:AdjustSpeed(1)
+
+delay(0.6, function()
+    secondAnimationTrack.TimePosition = 1.75
+end)
+end)
+task.spawn(function()
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humRp = character:WaitForChild("HumanoidRootPart")
+
+    
+    local function playSounds()
+        local soundSFX = Instance.new("Sound")
+        soundSFX.SoundId = "rbxassetid://17150550302"
+        soundSFX.Volume = 2
+        soundSFX.Name = "SFX"
+        soundSFX.Parent = humRp
+        soundSFX:Play()
+
+        local soundSFX2 = Instance.new("Sound")
+        soundSFX2.SoundId = "rbxassetid://17150550559"
+        soundSFX2.Volume = 2
+        soundSFX2.Name = "SFX2"
+        soundSFX2.Parent = humRp
+        soundSFX2:Play()
+    end
+
+    local function createEffects()
+        
+        local actuallyNice = game.ReplicatedStorage.Resources.KJEffects["fine...1"]:Clone()
+        actuallyNice.Position = humRp.Position
+        actuallyNice.CanCollide = false
+
+        
+        local weld = Instance.new("Weld")
+        weld.Part0 = actuallyNice
+        weld.Part1 = humRp
+        weld.C1 = CFrame.new(0, 0, 0)
+        weld.Parent = actuallyNice
+
+        actuallyNice.Parent = workspace
+
+        
+        local boom = game.ReplicatedStorage.Resources.KJEffects["fine...Emit"]:Clone()
+        boom.CanCollide = false
+        boom.Position = humRp.Position + Vector3.new(0, -0.65, 0)
+        boom.Parent = workspace
+
+        local boom2 = game.ReplicatedStorage.Resources.KJEffects["fine...Emit2"]:Clone()
+        boom2.CanCollide = false
+        boom2.Position = humRp.Position + Vector3.new(0, -0.65, 0)
+        boom2.Parent = workspace
+
+        
+        delay(0.16, function()
+            for _, Particles in pairs(boom:GetDescendants()) do
+                if Particles:IsA("ParticleEmitter") then
+                    Particles:Emit(Particles:GetAttribute("EmitCount"))
+                end
+            end
+        end)
+
+        
+        delay(8.17, function()
+            for _, Particles in pairs(boom2:GetDescendants()) do
+                if Particles:IsA("ParticleEmitter") then
+                    Particles:Emit(Particles:GetAttribute("EmitCount"))
+                end
+            end
+
+            wait()
+            actuallyNice:Destroy()
+        end)
+    end
+
+    local function executeVFX()
+        
+        playSounds()
+        createEffects()
+    end
+
+    
+    executeVFX()
+end)
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local animationId = 7815618175 
+local isBlocked = true 
+
+local function onAnimationPlayed(animationTrack)
+    if isBlocked and animationTrack.Animation.AnimationId == "rbxassetid://" .. animationId then
+        
+        animationTrack:Stop()
+    end
+end
+
+local function blockAnimation()
+    local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+    local humanoid = character:WaitForChild("Humanoid")
+
+    
+    humanoid.AnimationPlayed:Connect(onAnimationPlayed)
+
+    
+    for _, animTrack in pairs(humanoid:GetPlayingAnimationTracks()) do
+        if animTrack.Animation.AnimationId == "rbxassetid://" .. animationId then
+            animTrack:Stop()
+        end
+    end
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+wait(9.55)
+game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+    
+    wait()
+    isBlocked = false 
+end
+
+blockAnimation()
+end
+        end
+    end
+end)
+
+spawn(function()
+    local P = game.Players.LocalPlayer
+    local Character = P.Character or P.CharacterAdded:Wait()
+
+    while task.wait() do
+        local humanoid = Character:WaitForChild("Humanoid")
+
+        for _, tracks in pairs(humanoid:GetPlayingAnimationTracks()) do
+            if tracks.Animation.AnimationId == "rbxassetid://11365563255" then
+         spawn(function()
+    local SoundTP = Instance.new("Sound", game.Players.LocalPlayer.Character.Torso)
+    SoundTP.SoundId = "rbxassetid://17149593018"
+    SoundTP.Playing = true
+    wait(2.5)  
+
+    local OtherSFX = Instance.new("Sound", game.Players.LocalPlayer.Character.Torso)
+    OtherSFX.SoundId = "rbxassetid://17141392513"
+    OtherSFX.Playing = true
+    wait(1.5)
+
+    local IMMACHARGEMYLASER = Instance.new("Sound", game.Players.LocalPlayer.Character.Torso)
+    IMMACHARGEMYLASER.SoundId = "rbxassetid://17141392976"
+    IMMACHARGEMYLASER.Playing = true
+    wait(1.5)
+
+    local haisenbakudan = Instance.new("Sound", game.Players.LocalPlayer.Character.Torso)
+    haisenbakudan.SoundId = "rbxassetid://17141392676"
+    haisenbakudan.Playing = true
+    wait(2)
+
+    local BOOM = Instance.new("Sound", game.Players.LocalPlayer.Character.Torso)
+    BOOM.SoundId = "rbxassetid://17141392854"
+    BOOM.Playing = true
+end)
+
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 0
+local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local anim = Instance.new("Animation")
+anim.AnimationId = "rbxassetid://17141153099"
+
+local playAnim = humanoid:LoadAnimation(anim)
+anim.AnimationId = "rbxassetid://0"
+playAnim:Play()
+playAnim:AdjustSpeed(0.3)
+wait(2.5)
+playAnim:AdjustSpeed(1)
+
+spawn(function()
+    wait(1.5)
+    local omgstoicreal = game.ReplicatedStorage.Resources.StoicBomb.OHNO.Normal:Clone()
+    local parent = omgstoicreal
+    local attachments = {}
+
+    for _, child in ipairs(parent:GetChildren()) do
+        if child:IsA("Attachment") and child.Name == "Attachment" then
+            table.insert(attachments, child)
+        end
+    end
+
+    local newParent = game.Players.LocalPlayer.Character:FindFirstChild("Torso")
+
+    if newParent then
+        for _, attachment in ipairs(attachments) do
+            attachment.Parent = newParent
+            attachment.Position = attachment.Position + Vector3.new(0, -4, 0)
+            game.Players.LocalPlayer.Character.Torso.Attachment:Destroy()
+        end
+    end
+end)
+
+spawn(function()
+    local speedlinesamazingomg = game.ReplicatedStorage.Resources.KJEffects.stoicbombspeedlines.speedylines:Clone()
+    local speedlinesamazingomg2 = game.ReplicatedStorage.Resources.KJEffects.stoicbombspeedlines.speedylinesfire:Clone()
+    speedlinesamazingomg.Parent = game.ReplicatedStorage.Resources.KJEffects.stoicbombspeedlines.Attachment
+    speedlinesamazingomg2.Parent = game.ReplicatedStorage.Resources.KJEffects.stoicbombspeedlines.Attachment
+    local hmattachmentsus = game.ReplicatedStorage.Resources.KJEffects.stoicbombspeedlines.Attachment:Clone()
+    hmattachmentsus.Parent = game.Players.LocalPlayer.Character.Torso
+    game.Players.LocalPlayer.Character.Torso.Attachment["STAR!!!"].Enabled = true
+    game.Players.LocalPlayer.Character.Torso.Attachment.speedylines.Enabled = true
+    game.Players.LocalPlayer.Character.Torso.Attachment.speedylinesfire.Enabled = true
+end)
+
+local launch1 = game.ReplicatedStorage.Resources.KJEffects["launchup"].launchything:Clone()
+launch1.Parent = game.Players.LocalPlayer.Character["Torso"]
+for _, child in ipairs(launch1:GetChildren()) do
+    if child:IsA("ParticleEmitter") then
+        child:Emit(3)
+    end
+end
+wait(0.3)
+
+local light1 = game.ReplicatedStorage.Resources.StoicBomb["stoicbombspeedlines"].POINTOLIGHTO:Clone()
+light1.Parent = game.Players.LocalPlayer.Character["Torso"]
+for _, child in ipairs(light1:GetChildren()) do
+    if child:IsA("ParticleEmitter") then
+        child:Emit(1)
+    end
+end
+wait(1.5)
+
+local boom1 = game.ReplicatedStorage.Resources.KJEffects["stoic bomb boom entrance"].Attachment:Clone()
+boom1.Parent = game.Players.LocalPlayer.Character["Torso"]
+for _, child in ipairs(boom1:GetChildren()) do
+    if child:IsA("ParticleEmitter") then
+        child:Emit(3)
+    end
+end
+wait(2)
+
+local stoic1 = game.ReplicatedStorage.Resources.StoicBomb["pre"].Part.Attachment:Clone()
+stoic1.Parent = game.Players.LocalPlayer.Character["Torso"]
+for _, child in ipairs(stoic1:GetChildren()) do
+    if child:IsA("ParticleEmitter") then
+        child:Emit(1)
+    end
+end
+wait(0.1)
+
+local stoic2 = game.ReplicatedStorage.Resources.StoicBomb["Main"].Part.Attachment:Clone()
+stoic2.Parent = game.Players.LocalPlayer.Character["Torso"]
+for _, child in ipairs(stoic2:GetChildren()) do
+    if child:IsA("ParticleEmitter") then
+        child:Emit(1)
+    end
+end
+
+local replicatedStorage = game:GetService("ReplicatedStorage")
+local character = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+light1:Destroy()
+stoic1:Destroy()
+stoic2:Destroy()
+
+local boom2 = game.ReplicatedStorage.Resources.KJEffects["stoic bomb boom entrance"].THEACTUALBOOM:Clone()
+boom2.Parent = game.Players.LocalPlayer.Character["Torso"]
+for _, child in ipairs(boom2:GetChildren()) do
+    if child:IsA("ParticleEmitter") then
+        child:Emit(5)
+    end
+end
+
+local boom3 = game.ReplicatedStorage.Resources.KJEffects["stoic bomb boom entrance"].smok:Clone()
+boom3.Parent = game.Players.LocalPlayer.Character["Torso"]
+for _, child in ipairs(boom3:GetChildren()) do
+    if child:IsA("ParticleEmitter") then
+        child:Emit(5)
+    end
+end
+
+local boom4 = game.ReplicatedStorage.Resources.KJEffects["stoicbombspeedlines"].Attachment:Clone()
+boom4.Parent = game.Players.LocalPlayer.Character["Torso"]
+for _, child in ipairs(boom4:GetChildren()) do
+    if child:IsA("ParticleEmitter") then
+        child:Emit(1)
+    end
+end
+
+wait(0.5)
+
+local parent = script.Parent
+local attachmentName = "Attachment"
+local torso = game.Players.LocalPlayer.Character:FindFirstChild("Torso")
+
+if torso then
+    for _, child in ipairs(torso:GetChildren()) do
+        if child:IsA("Attachment") and child.Name == attachmentName then
+            child:Destroy()
+        end
+    end
+end
+
+wait(0.5)
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+end
+        end
+    end
+end)
+
+local a=game.Players.LocalPlayer local a=a.PlayerGui local a=a:FindFirstChild("Hotbar") local a=a:FindFirstChild("Backpack") local a=a:FindFirstChild("Hotbar") local a=a:FindFirstChild("1").Base local a=a.ToolName a.Text="Special Swing" local a=game.Players.LocalPlayer local a=a.PlayerGui local a=a:FindFirstChild("Hotbar") local a=a:FindFirstChild("Backpack") local a=a:FindFirstChild("Hotbar") local a=a:FindFirstChild("2").Base local a=a.ToolName a.Text="Ravage" local a=game.Players.LocalPlayer local a=a.PlayerGui local a=a:FindFirstChild("Hotbar") local a=a:FindFirstChild("Backpack") local a=a:FindFirstChild("Hotbar") local a=a:FindFirstChild("3").Base local a=a.ToolName a.Text="Swift Sweep" local a=game.Players.LocalPlayer local a=a.PlayerGui local a=a:FindFirstChild("Hotbar") local a=a:FindFirstChild("Backpack") local a=a:FindFirstChild("Hotbar") local a=a:FindFirstChild("4").Base local a=a.ToolName a.Text="Collateral Ruin" local a=game:GetService("Players") local a=a.LocalPlayer local a=a:WaitForChild("PlayerGui") local function b() local a=a:FindFirstChild("ScreenGui") if a then local a=a:FindFirstChild("MagicHealth") if a then local a=a:FindFirstChild("TextLabel") if a then a.Text="20 Series" end end end end a.DescendantAdded:Connect(b) b()
+
+local changeAnim = function(OGAnim, NewAnim, NewAnimSpeed, NewAnimTPos,AnimTposEnd, StopSpeed)
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+local yes = humanoid.AnimationPlayed:Connect(function(d)
+if d.Animation.AnimationId == "rbxassetid://"..tostring(OGAnim) then
+d:Stop()
+local pchar= game.Players.LocalPlayer.Character
+local AnimationId = tostring(NewAnim)
+local Anim = Instance.new("Animation")
+Anim.AnimationId = "rbxassetid://"..AnimationId
+local k = pchar:FindFirstChildOfClass('Humanoid'):LoadAnimation(Anim)
+k:Play()
+task.spawn(function()
+    repeat task.wait() until k.TimePosition >= AnimTposEnd
+    k:Stop(StopSpeed)
+    end)
+if NewAnimSpeed then
+k:AdjustSpeed(NewAnimSpeed)
+end
+if NewAnimTPos then
+k.TimePosition = NewAnimTPos
+end
+end
+end)
+end
+
+changeAnim(10469493270, 17889458563)
+
+changeAnim(10469630950, 17889461810)
+
+changeAnim(10469639222, 13295919399)
+
+changeAnim(10469643643, 13294471966)
+
+changeAnim(10466974800, 13560306510, 3)
+
+changeAnim(10468665991, 18896127525)
+
+changeAnim(12510170988, 18896229321)
+
+changeAnim(10479335397, 17838006839)
+
+changeAnim(10471336737, 13073745835, 1.5)
+
+changeAnim(12447707844, 15957376722)
+
+changeAnim(11365563255, 11365563255)
